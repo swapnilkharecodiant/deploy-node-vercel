@@ -7,6 +7,10 @@ app.get('/', (req, res) => {
   res.send('Hello World')
 })
 
+app.get('/login', (req, res) => {
+  res.send('Login route 🎉 ')
+})
+
 app.get('/about', (req, res) => {
   res.send('About route 🎉 ')
 })
