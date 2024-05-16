@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "npx prisma generate babel-node src/index.js"
+    "start": "npm run postinstall && nodemon --exec babel-node src/index.js",
+    "postinstall": " npx prisma generate"
   },
   "author": "",
   "license": "ISC",
