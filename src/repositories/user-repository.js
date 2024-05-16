@@ -3,7 +3,7 @@ import db from "../../server";
 export default {
   async getUser(req) {
     try {
-      const data = await db.user.findMany();
+      const data = await db.users.findMany();
       return data;
     } catch (error) {
       console.log(error);
@@ -13,7 +13,7 @@ export default {
   async signup(req) {
     try {
       const bodyData = req.body;
-      const data = await db.user.create(bodyData);
+      const data = await db.users.create(bodyData);
       return data;
     } catch (error) {
       console.log(error);
