@@ -8,7 +8,7 @@ const { userRepository } = repositories;
 export default {
     async getUser(req, res, next) {
         try {
-            const { email } = req?.body;
+            const { email } = req?.params;
             const { error, data, status } = await supabase.from('User')
                 .select('*')
                 .eq('email', email)
@@ -18,10 +18,9 @@ export default {
                 .status(httpStatus.OK)
                 .json({ status: true, data: data });
             } else {
-                console.log(error);
                 return res
                 .status(httpStatus.BAD_REQUEST)
-                .json({ message: "Bad request", status: false });
+                .json({ message: "Email not exists", status: false });
             }
         } catch (error) {
             next(error);
