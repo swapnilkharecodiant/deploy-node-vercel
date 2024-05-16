@@ -1,17 +1,21 @@
-import supabase from "../models";
+import db from "../../server";
 
 export default {
+  async getUser(req) {
+    try {
+      const data = await db.user.findMany();
+      return data;
+    } catch (error) {
+      console.log(error);
+      throw Error(error);
+    }
+  },
   async signup(req) {
     try {
       const bodyData = req.body;
-      const { error, data, status } = await supabase.from('User')
-        .insert(bodyData)
-      if (status === 200 || status === 201) return bodyData;
-      if (error) {
-        return false;
-      }
+      const data = await db.user.create(bodyData);
+      return data;
     } catch (error) {
-      console.log("error error error error error error error error ");
       console.log(error);
       throw Error(error);
     }
