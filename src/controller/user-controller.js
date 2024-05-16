@@ -7,9 +7,25 @@ const { userRepository } = repositories;
 
 export default {
     async getUser(req, res, next) {
-        return res
-        .status(httpStatus.OK)
-        .json({ message: "Submitted", status: true, data: null });
+        try {
+            const { email } = req?.body;
+            const { error, data, status } = await supabase.from('User')
+                .select('*')
+                .eq('email', email)
+                .single();
+            if (data) {
+                return res
+                .status(httpStatus.OK)
+                .json({ status: true, data: data });
+            } else {
+                console.log(error);
+                return res
+                .status(httpStatus.BAD_REQUEST)
+                .json({ message: "Bad request", status: false });
+            }
+        } catch (error) {
+            next(error);
+        }
     },
 
     async addUser(req, res, next) {
