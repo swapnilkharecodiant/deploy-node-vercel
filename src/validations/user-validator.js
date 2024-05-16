@@ -31,28 +31,6 @@ const userProfileUpdateSchema = Joi.object({
       'string.empty': 'PHONE_NUMBER_REQUIRED',
       'string.pattern.base': 'PHONE_NUMBER_INVALID'
     }),
-  gender: Joi.string() // Assuming gender as string, you may want to define specific values if needed
-    .required()
-    .messages({
-      'any.required': 'GENDER_REQUIRED'
-    }),
-  dob: Joi.date()
-    .max('now')
-    .required()
-    .messages({
-      'any.required': 'DOB_REQUIRED',
-      'date.max': 'DOB_CANNOT_BE_FUTURE_DATE'
-    }),
-  location: Joi.string()
-    .required()
-    .messages({
-      'any.required': 'LOCATION_REQUIRED'
-    }),
-  region: Joi.string()
-    .required()
-    .messages({
-      'any.required': 'REGION_REQUIRED'
-    })
 });
 
 export default {
