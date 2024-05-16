@@ -6,11 +6,9 @@ import path from 'path';
 export default class Bootstrap {
   constructor(app) {
     this.app = app;
-    this.connectDb();
     this.middleware();
     this.routes();
     this.start();
-
   }
 
   start() {
