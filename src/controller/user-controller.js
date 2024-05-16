@@ -8,7 +8,7 @@ const { userRepository } = repositories;
 export default {
     async getUser(req, res, next) {
         try {
-            const { email } = req?.params;
+            const { email } = req?.param;
             console.log('email :', email);
             const { error, data, status } = await supabase.from('User')
                 .select('*')
