@@ -13,7 +13,6 @@ export default {
   async signup(req) {
     try {
       const bodyData = req.body;
-      console.log('bodyData :', bodyData);
       const data = await db.users.create({
         data: bodyData
       });
