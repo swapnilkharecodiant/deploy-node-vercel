@@ -1,4 +1,4 @@
-import db from "../../server";
+import { db } from "../../server";
 
 export default {
   async getUser(req) {
