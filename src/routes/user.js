@@ -7,6 +7,12 @@ const router = Router();
 const { userController } = controller;
 const { userValidator } = validations;
 const { validateMiddleware } = middlewares;
+
+router.get(
+    '/contact',
+    userController.getUser
+);
+
 router.post(
     '/contact',
     validateMiddleware({ schema: userValidator.userProfileUpdateSchema }), 

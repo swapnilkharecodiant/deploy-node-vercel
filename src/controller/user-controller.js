@@ -6,6 +6,12 @@ import repositories from "../repositories";
 const { userRepository } = repositories;
 
 export default {
+    async getUser(req, res, next) {
+        return res
+        .status(httpStatus.OK)
+        .json({ message: "Submitted", status: true, data: null });
+    },
+
     async addUser(req, res, next) {
         try {
             try {
