@@ -5,7 +5,9 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "npx prisma db push && npx prisma generate && nodemon --exec babel-node src/index.js"
+    "start": "npm run db:push && npm run postinstall && nodemon --exec babel-node src/index.js",
+    "postinstall": "npx prisma generate",
+    "db:push": "npx prisma db push"
   },
   "author": "",
   "license": "ISC",
