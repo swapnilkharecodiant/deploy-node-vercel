@@ -9,6 +9,7 @@ export default {
     async getUser(req, res, next) {
         try {
             const { email } = req?.params;
+            console.log('email :', email);
             const { error, data, status } = await supabase.from('User')
                 .select('*')
                 .eq('email', email)
